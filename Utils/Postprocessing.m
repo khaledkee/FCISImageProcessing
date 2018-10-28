@@ -1,6 +1,5 @@
 function out = Postprocessing(I, Postproc)
-  if strcmpi(Postproc, "none") == 1
-  elseif strcmpi(Postproc, "absolute") == 1
+  if strcmpi(Postproc, "absolute") == 1
     out = abs(I);
   elseif strcmpi(Postproc, "cutoff") == 1
     [n m] = size(I);
@@ -9,5 +8,7 @@ function out = Postprocessing(I, Postproc)
         out(i,j) = min(max(I(i,j), 0), 255);
       endfor
     endfor
+  else
+    out = I;
   endif
 endfunction
